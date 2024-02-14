@@ -28,3 +28,9 @@ stages:
   - job: ProdDeployJob
     steps: 
     - bash: echo Build ProdDeployJob
+- task: Docker@2
+  inputs:
+    containerRegistry: 'chuka001-Dockerhub'
+    repository: 'chuka001/currency_exchange'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
