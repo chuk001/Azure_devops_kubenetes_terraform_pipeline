@@ -16,21 +16,12 @@ stages:
 - stage: DevDeploy
   jobs:
   - job: DevDeployJob
-    steps: 
-    - bash: echo Build DevDeployJob
-- stage: QADeploy
-  jobs:
-  - job: QADeployJob
-    steps: 
-    - bash: echo Build QADeployJob
-- stage: ProdDepoly
-  jobs:
-  - job: ProdDeployJob
-    steps: 
-    - bash: echo Build ProdDeployJob
-- task: Docker@2
-  inputs:
-    containerRegistry: 'chuka001-Dockerhub'
-    repository: 'chuka001/currency_exchange'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    steps:
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'chuka001-Dockerhub'
+      repository: 'chuka001/currency-exchange-devops'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
+      tags
